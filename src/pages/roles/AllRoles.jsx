@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import backend from "../../utils";
 import { Button } from "@/components/ui/button";
+import Loading from "@/components/Loading";
 
 function AllRoles() {
   const [roles, setRoles] = useState([]);
@@ -45,6 +46,11 @@ function AllRoles() {
   useEffect(() => {
     getAllRoles();
   }, []);
+
+  // loading indicator
+  if (roles.length == 0) {
+    return <Loading />;
+  }
 
   return (
     <div>
