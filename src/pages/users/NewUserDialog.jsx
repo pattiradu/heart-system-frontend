@@ -41,7 +41,6 @@ export default function NewUserDialog({ refreshUsers }) {
     try {
       const { data } = await backend.get("/roles");
       setRoles(data);
-      console.log(data);
     } catch (error) {
       toast.error(error?.response?.data || error.message);
     }

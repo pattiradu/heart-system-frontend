@@ -53,7 +53,6 @@ export default function EditUser({ refreshUsers, user }) {
       setLoading(true);
       const { data } = await backend.get("/roles");
       setRoles(data);
-      console.log(data);
     } catch (error) {
       toast.error(error?.response?.data || error.message);
     } finally {
@@ -106,7 +105,7 @@ export default function EditUser({ refreshUsers, user }) {
 
   return (
     <div>
-      <AlertDialog aria-describedby={"undefined"}>
+      <AlertDialog aria-describedby={"modal"}>
         <AlertDialogTrigger asChild>
           <Button
             variant={"outline"}
@@ -116,7 +115,7 @@ export default function EditUser({ refreshUsers, user }) {
             <Edit2 size={18} />
           </Button>
         </AlertDialogTrigger>
-        <AlertDialogContent aria-describedby={"undefined"}>
+        <AlertDialogContent aria-describedby={"modal"}>
           <AlertDialogHeader>
             <AlertDialogTitle>Edit a user</AlertDialogTitle>
           </AlertDialogHeader>

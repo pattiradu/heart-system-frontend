@@ -11,6 +11,7 @@ import { toast } from "sonner";
 import backend from "../../utils";
 import { Button } from "@/components/ui/button";
 import Loading from "@/components/Loading";
+import DeleteAlertDialog from "@/components/DeleteAlertDialog";
 
 function AllRoles() {
   const [roles, setRoles] = useState([]);
@@ -31,9 +32,6 @@ function AllRoles() {
 
   //   delete role
   const handleDelete = async (id, role) => {
-    if (!window.confirm("Are you sure to delete role " + role)) {
-      return;
-    }
     try {
       const { data } = await backend.delete("/roles/" + id);
       toast.success("Role deleted");
@@ -79,7 +77,11 @@ function AllRoles() {
 
             <ul className="flex items-center gap-5">
               <li>
-                <Button
+                <DeleteAlertDialog
+                  onConfirm={() => handleDelete(role.id, role.role_name)}
+                  key={"my alert"}
+                />
+                {/* <Button
                   variant={"outline"}
                   onClick={() => handleDelete(role.id, role.role_name)}
                   className="flex gap-3 items-center hover:cursor-pointer"
@@ -89,7 +91,7 @@ function AllRoles() {
                     className="text-red-700 "
                   />
                   Delete
-                </Button>
+                </Button> */}
               </li>
               <li>
                 <Link

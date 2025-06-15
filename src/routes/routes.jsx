@@ -4,6 +4,7 @@ import AllRoles from "../pages/roles/AllRoles";
 import CreateRole from "../pages/roles/CreateRole";
 import EditRole from "../pages/roles/EditRole";
 import AllUsers from "@/pages/users/AllUsers";
+import DoctorHome from "@/pages/doctor/DoctorHome";
 
 function routes() {
   return (
@@ -26,6 +27,13 @@ function routes() {
       <Route
         path="/users"
         element={<AllUsers />}
+      />
+
+      {/* doctors */}
+
+      <Route
+        path="/doctors"
+        element={<DoctorHome />}
       />
     </Routes>
   );

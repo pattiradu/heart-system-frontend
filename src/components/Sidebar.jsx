@@ -9,6 +9,7 @@ import {
   CalendarCheck,
   CheckCircle2,
   HeartPulse,
+  HelpingHand,
 } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
@@ -23,7 +24,6 @@ const menu = [
     items: [
       { label: "Roles", to: "/roles", icon: UserCog },
       { label: "General Users", to: "/users", icon: Users },
-      { label: "System Users", to: "/system-users", icon: User },
     ],
   },
   {
@@ -39,8 +39,11 @@ const menu = [
     ],
   },
   {
-    heading: "Monitoring",
-    items: [{ label: "Heart Data", to: "/heart-data", icon: HeartPulse }],
+    heading: "Setting",
+    items: [
+      { label: "Account center", to: "/account-center", icon: UserCog },
+      { label: "Help", to: "/help", icon: HelpingHand },
+    ],
   },
 ];
 
