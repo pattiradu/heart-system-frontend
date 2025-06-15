@@ -35,6 +35,12 @@ function routes() {
         path="/doctors"
         element={<DoctorHome />}
       />
+
+      {/* page not found */}
+      <Route
+        path="*"
+        element={<h1 className="text-center pt-12">404 - Not Found</h1>}
+      />
     </Routes>
   );
 }

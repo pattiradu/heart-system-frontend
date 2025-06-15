@@ -1,39 +1,46 @@
-import React from "react";
-import { BrowserRouter } from "react-router-dom";
-import { toast } from "sonner";
+import { AppSidebar } from "@/components/app-sidebar";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { Separator } from "@/components/ui/separator";
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar";
+
 import AppRoutes from "./routes/routes";
-import Sidebar from "./components/Sidebar";
-import { ModeToggle } from "./components/theme/mode-toggle";
 
-function App() {
+export default function AppLayout() {
   return (
-    <BrowserRouter>
-      <div className="flex min-h-screen flex-col">
-        {/* Header */}
-        <header className="bg-sky-700  px-10 py-4 shadow-md">
-          <h1 className="text-xl font-semibold">Hypertension Dashboard</h1>
+    <SidebarProvider>
+      <AppSidebar />
+      <SidebarInset>
+        <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
+          <div className="flex items-center gap-2 px-4">
+            <SidebarTrigger className="-ml-1" />
+            <Separator
+              orientation="vertical"
+              className="mr-2 data-[orientation=vertical]:h-4"
+            />
+            <Breadcrumb>
+              <BreadcrumbList>
+                <BreadcrumbItem className="hidden md:block">
+                  HYPERTATION MANAGEMENT SYSTEM
+                </BreadcrumbItem>
+              </BreadcrumbList>
+            </Breadcrumb>
+          </div>
         </header>
-
-        {/* Body */}
-        <div className="flex flex-1">
-          {/* Sidebar */}
-          <aside className="w-64  border-r border-gray-200">
-            <Sidebar />
-          </aside>
-
-          {/* Main */}
-          <main className="flex-1  p-8">
-            <AppRoutes />
-          </main>
-        </div>
-
-        {/* Footer */}
-        <footer className=" text-center text-sm py-3">
-          © {new Date().getFullYear()} Healthy Heart Inc.
-        </footer>
-      </div>
-    </BrowserRouter>
+        <main className="flex-1 overflow-y-auto p-4">
+          <AppRoutes />
+        </main>
+      </SidebarInset>
+    </SidebarProvider>
   );
 }
-
-export default App;
