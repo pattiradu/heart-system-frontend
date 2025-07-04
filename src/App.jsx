@@ -22,7 +22,7 @@ import AppRoutes from "./routes/routes";
 export default function AppLayout() {
   const location = useLocation();
   const navigate = useNavigate();
-  const user = localStorage.getItem("user");
+  const user = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
     if (!user && location.pathname !== "/login") {
@@ -44,7 +44,7 @@ export default function AppLayout() {
 
   return (
     <SidebarProvider>
-      <AppSidebar />
+      <AppSidebar userData={user} />
       <SidebarInset>
         <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12">
           <div className="flex items-center gap-2 px-4">

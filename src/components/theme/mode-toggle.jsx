@@ -8,7 +8,7 @@ export function ModeToggle() {
   const getButtonVariant = (mode) => (theme === mode ? "default" : "outline");
 
   return (
-    <div className="flex items-center justify-center gap-5">
+    <div className="flex items-center ml-3 gap-5">
       <Button
         variant={getButtonVariant("light")}
         size="icon"

@@ -33,15 +33,7 @@ import {
 } from "@/components/ui/sidebar";
 import { ModeToggle } from "./theme/mode-toggle";
 
-export function AppSidebar({ ...props }) {
-  const [userData, setUserData] = React.useState(
-    JSON.parse(localStorage.getItem("user"))
-  );
-
-  console.log(userData);
-
-  // userData.role.role_name;
-
+export function AppSidebar({ userData, ...props }) {
   const data = {
     user: {
       name: userData.names,
@@ -130,10 +122,9 @@ export function AppSidebar({ ...props }) {
       </SidebarContent>
 
       <SidebarFooter>
-        <ModeToggle />{" "}
-        <p className="text-center">
-          © {new Date().getFullYear()} Healthy Heart Inc.
-        </p>
+        <ModeToggle />
+        <div className="my-3" />
+        <NavUser user={data.user} />
       </SidebarFooter>
     </Sidebar>
   );
