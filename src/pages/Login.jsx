@@ -17,8 +17,11 @@ export default function Login() {
     setError("");
     try {
       const { data: users } = await backend.get("/users");
-      const user = users.find(u => u.email === email && u.password === password);
+      const user = users.find(
+        (u) => u.email === email && u.password === password
+      );
       if (user) {
+        delete user.password;
         localStorage.setItem("user", JSON.stringify(user));
         const role = user.role?.role_name?.toLowerCase();
         if (role === "admin" || role === "doctor") {
@@ -45,13 +48,15 @@ export default function Login() {
         className="bg-white dark:bg-card p-8 rounded-lg shadow-md w-full max-w-sm space-y-6"
       >
         <h2 className="text-2xl font-bold text-center">Login</h2>
-        {error && <div className="text-red-500 text-center text-sm">{error}</div>}
+        {error && (
+          <div className="text-red-500 text-center text-sm">{error}</div>
+        )}
         <div>
           <label className="block mb-1 font-medium">Email</label>
           <Input
             type="email"
             value={email}
-            onChange={e => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
             required
           />
@@ -61,15 +66,19 @@ export default function Login() {
           <Input
             type="password"
             value={password}
-            onChange={e => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
             placeholder="Enter your password"
             required
           />
         </div>
-        <Button type="submit" className="w-full" disabled={loading}>
+        <Button
+          type="submit"
+          className="w-full"
+          disabled={loading}
+        >
           {loading ? "Logging in..." : "Login"}
         </Button>
       </form>
     </div>
   );
-} 
+}
