@@ -34,6 +34,9 @@ import {
 import { ModeToggle } from "./theme/mode-toggle";
 
 export function AppSidebar({ userData, ...props }) {
+  if (!userData) {
+    return;
+  }
   const data = {
     user: {
       name: userData.names,
