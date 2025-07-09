@@ -1,11 +1,10 @@
 import {
   PlusCircle,
-  SquareDashed,
   SquarePen,
-  Trash2Icon,
   UserCog,
 } from "lucide-react";
-import React, { useEffect, useState } from "react";
+
+import  { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import backend from "../../utils";
@@ -31,9 +30,9 @@ function AllRoles() {
   };
 
   //   delete role
-  const handleDelete = async (id, role) => {
+  const handleDelete = async (id) => {
     try {
-      const { data } = await backend.delete("/roles/" + id);
+      await backend.delete("/roles/" + id);
       toast.success("Role deleted");
       getAllRoles();
     } catch (error) {

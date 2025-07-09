@@ -1,4 +1,3 @@
-import React from "react";
 import { Route, Routes } from "react-router-dom";
 import AllRoles from "../pages/roles/AllRoles";
 import CreateRole from "../pages/roles/CreateRole";
@@ -8,10 +7,14 @@ import DoctorHome from "@/pages/doctor/DoctorHome";
 import Login from "../pages/Login";
 import HealthAdvisorDashboard from "../pages/dashboard/HealthAdvisorDashboard";
 import UserDashboard from "../pages/dashboard/UserDashboard";
+import DashboardIndex from "@/pages/dashboard/DashboardIndex";
 
 function routes() {
   return (
     <Routes>
+
+      <Route path="/" element={<DashboardIndex />} />
+
       {/* roles routes */}
       <Route
         path="/roles"
@@ -54,6 +57,8 @@ function routes() {
         path="/dashboard/user"
         element={<UserDashboard />}
       />
+
+
 
       {/* page not found */}
       <Route
