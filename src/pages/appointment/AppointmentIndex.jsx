@@ -34,6 +34,10 @@ function AppointmentIndex({ type }) {
     getAppointmentsData();
   }, []);
 
+  useEffect(() => {
+    getAppointmentsData();
+  }, [type]);
+
   if (loading) {
     return (
       <div className="flex justify-center items-center h-[50vh]">
