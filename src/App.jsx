@@ -71,7 +71,7 @@ export default function AppLayout() {
         <main className="flex-1 overflow-y-auto p-4">
           <AppRoutes />
         </main>
-        <footer className="w-full flex items-center justify-center gap-2 py-4 bg-gray-100 border-t text-gray-700 text-sm">
+        <footer className="w-full flex items-center justify-center gap-2 py-4 bg-gray-100 dark:bg-slate-950 border-t text-gray-700 dark:text-white text-sm">
           <span>&copy; {new Date().getFullYear()} Healthy Heart Inc.</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"

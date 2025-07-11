@@ -12,17 +12,23 @@ import {
 } from "./ui/alert-dialog";
 import { Button } from "./ui/button";
 import { Trash2 } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
 function DeleteAlertDialog({ onConfirm }) {
   return (
-    <AlertDialog key={"myalertdeleter"}>
-      <AlertDialogTrigger asChild>
-        <Button
-          variant="outline"
-          size="icon"
-        >
-          <Trash2 />
-        </Button>
+    <AlertDialog>
+      <AlertDialogTrigger>
+        <Tooltip>
+          <TooltipTrigger>
+            <Button
+              variant="outline"
+              size="icon"
+            >
+              <Trash2 />
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>Delete</TooltipContent>
+        </Tooltip>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>

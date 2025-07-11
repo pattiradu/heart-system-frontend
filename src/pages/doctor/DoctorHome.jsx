@@ -42,7 +42,7 @@ function DoctorHome() {
         <TabsContent value="patients">
           <AllPatients
             patients={patients}
-            getAllPatients={getAllPatients}
+            getAllPatients={() => getAllPatients()}
           />
         </TabsContent>
         <TabsContent value="newpatient">

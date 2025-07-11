@@ -33,7 +33,7 @@ export default function AllPatients({ patients, getAllPatients }) {
     if (getAllPatients) {
       getAllPatients();
     }
-  }, [getAllPatients]);
+  }, []);
 
   return (
     <div>

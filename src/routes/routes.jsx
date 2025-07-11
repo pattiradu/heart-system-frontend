@@ -8,12 +8,15 @@ import Login from "../pages/Login";
 import HealthAdvisorDashboard from "../pages/dashboard/HealthAdvisorDashboard";
 import UserDashboard from "../pages/dashboard/UserDashboard";
 import DashboardIndex from "@/pages/dashboard/DashboardIndex";
+import AppointmentIndex from "@/pages/appointment/AppointmentIndex";
 
 function routes() {
   return (
     <Routes>
-
-      <Route path="/" element={<DashboardIndex />} />
+      <Route
+        path="/"
+        element={<DashboardIndex />}
+      />
 
       {/* roles routes */}
       <Route
@@ -58,7 +61,16 @@ function routes() {
         element={<UserDashboard />}
       />
 
+      {/* Appointment routes */}
+      <Route
+        path="/appointments"
+        element={<AppointmentIndex type="pending" />}
+      />
 
+      <Route
+        path="/solved-appointments"
+        element={<AppointmentIndex type="solved" />}
+      />
 
       {/* page not found */}
       <Route
